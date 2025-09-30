@@ -1,22 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Vulnerability Disclosure Policy</title>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
+  <title>Transform9 – Vulnerability Disclosure Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 0 1em;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+    }
+    code, pre {
+      font-family: 'Fira Code', monospace;
+      background: #f7f7f7;
+      padding: 3px 6px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    ul {
+      margin-left: 1.5em;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    p {
+      margin-top: 1em;
+    }
+  </style>
 </head>
 <body>
-  <h1>Transform9 Vulnerability Disclosure Policy</h1>
-  <p>If you believe you’ve found a security vulnerability, please report it to <a href="mailto:security@transform9.com">security@transform9.com</a>.</p>
-  <h3>Scope</h3>
+  <h1>Vulnerability Disclosure Policy</h1>
+
+  <p>At <strong>Transform9</strong>, we take the security of our products and services very seriously. We appreciate the efforts of security researchers and ethical hackers in helping us identify and resolve vulnerabilities responsibly. This policy outlines how to report potential security issues and what to expect during the disclosure process.</p>
+
+  <h2>Scope</h2>
+  <p>The scope of this policy includes all publicly accessible systems and services operated by Transform9, including but not limited to:</p>
   <ul>
-    <li>https://www.transform9.com</li>
-    <li>https://portal.transform9.com</li>
+    <li><code>https://www.transform9.com</code> and all its subpaths</li>
+    <li><code>https://portal.transform9.com</code> and all its subpaths</li>
+    <li>APIs under the <code>*.transform9.com</code> domain</li>
+    <li>Mobile applications published by Transform9 (if explicitly stated)</li>
   </ul>
-  <h3>Out of Scope</h3>
+
+  <h2>Out of Scope</h2>
+  <p>The following activities and areas are <strong>explicitly out of scope</strong> for this program:</p>
   <ul>
-    <li>Phishing</li>
-    <li>Clickjacking</li>
+    <li>Denial of Service (DoS) or Distributed Denial of Service (DDoS) attacks</li>
+    <li>Social engineering attacks, including phishing, vishing, or SMS scams</li>
+    <li>Physical attacks, such as tampering with hardware or unauthorized access to facilities</li>
+    <li>Attacks against third-party systems or infrastructure not owned or controlled by Transform9</li>
+    <li>UI/UX bugs or visual glitches without a security impact</li>
+    <li>Clickjacking or missing security headers when they do not lead to an exploit</li>
   </ul>
-  <p>Thank you for helping keep Transform9 safe!</p>
-</body>
-</html>
+
+  <h2>How to Submit a Vulnerability Report</h2>
+  <p>If you believe you have discovered a security vulnerability within the scope defined above, please submit a detailed report to our security team via one of the following methods:</p>
+  <ul>
+    <li>Email: <a href="mailto:security@transform9.com">security@transform9.com</a></li>
+    <li>PGP key for encrypted submissions: <a href="https://transform9.com/pgp-key.asc" target="_blank" rel="noopener noreferrer">Download PGP Key</a> (if applicable)</li>
+  </ul>
+
+  <h3>Report Guidelines</h3>
+  <p>Please include the following information in your report to help us investigate the issue effectively:</p>
+  <ul>
+    <li>Description of the vulnerability, including steps to reproduce</li>
+    <li>Impact assessment or potential risks</li>
+    <li>Any proof of concept code or screenshots</li>
+    <li>Your contact information for follow-up questions (optional)</li>
+  </ul>
+
+  <h2>Our Commitment to You</h2>
+  <p>Once a report is received, our security team will:</p>
+  <ul>
+    <li>Acknowledge receipt of the report within 3 business days</li>
+    <li>Keep you informed about the status of the investigation</li>
+    <li>Coordinate
