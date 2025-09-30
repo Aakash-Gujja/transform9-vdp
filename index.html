@@ -1,123 +1,253 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Transform9 – Vulnerability Disclosure Policy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Transform9 — Vulnerability Disclosure Policy</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Dark background and light text */
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
-      max-width: 800px;
-      margin: 2em auto;
-      padding: 0 1em;
-      line-height: 1.6;
+    :root{
+      --bg: #0b0b0b;
+      --panel: #121212;
+      --muted: #9aa4a8;
+      --text: #e6eef0;
+      --accent: #61b39f; /* green sheen */
+      --accent-2: #f9ace9; /* soft rose for links */
+      --border: #1f1f1f;
+      --code-bg: #151515;
     }
-    header {
-      text-align: center;
-      padding: 1em 0 2em 0;
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--bg) 0%, #060606 100%);
+      color:var(--text);
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
     }
-    h1 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 2.5rem;
-      color: #61b39f; /* green sheen accent */
-      margin: 0;
+
+    .wrapper{
+      max-width:980px;
+      margin:36px auto;
+      padding:28px;
     }
-    h2 {
-      font-family: 'Poppins', sans-serif;
-      color: #04845c; /* Spanish Viridian */
-      font-weight: 700;
-      margin-top: 2em;
-      margin-bottom: 0.5em;
+
+    header{
+      text-align:center;
+      padding:18px 0 28px 0;
     }
-    p, li {
-      font-size: 1rem;
-      margin-bottom: 0.75em;
+
+    h1{
+      font-family:'Poppins', sans-serif;
+      font-weight:700;
+      color:var(--accent);
+      margin:0 0 6px 0;
+      font-size:2.2rem;
+      letter-spacing: -0.5px;
     }
-    ul {
-      margin-left: 1.5em;
+
+    .subtitle{
+      color:var(--muted);
+      margin:0;
+      font-size:0.95rem;
     }
-    a {
-      color: #f9ace9; /* lavender rose */
-      text-decoration: none;
+
+    main{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--border);
+      border-radius:12px;
+      margin-top:22px;
+      padding:28px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6);
     }
-    a:hover {
-      text-decoration: underline;
+
+    h2{
+      font-family:'Poppins', sans-serif;
+      color:var(--accent);
+      font-weight:600;
+      margin-top:22px;
+      margin-bottom:8px;
+      font-size:1.2rem;
     }
-    code, pre {
-      font-family: 'Fira Code', monospace;
-      background-color: #1e1e1e;
-      color: #f9ace9;
-      padding: 4px 6px;
-      border-radius: 4px;
-      display: inline-block;
+
+    p{ color:var(--text); margin:10px 0; }
+    ul{ margin:10px 0 10px 1.1rem; color:var(--muted); }
+    li{ margin:6px 0; }
+
+    a{ color:var(--accent-2); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    code, pre{
+      font-family: ui-monospace, SFMono-Regular, "Fira Code", "Roboto Mono", Menlo, Monaco, "Courier New", monospace;
+      background: var(--code-bg);
+      color: #ffdede;
+      padding:6px 8px;
+      border-radius:6px;
+      font-size:0.95rem;
     }
-    footer {
-      margin-top: 3em;
-      padding-top: 1em;
-      border-top: 1px solid #333;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
+
+    .panel{
+      background: #0f0f10;
+      border:1px solid var(--border);
+      padding:14px 16px;
+      border-radius:8px;
+      margin:14px 0;
+    }
+
+    .muted { color:var(--muted); font-size:0.95rem; }
+
+    footer{
+      margin-top:18px;
+      font-size:0.92rem;
+      color:var(--muted);
+      text-align:center;
+      padding-top:12px;
+    }
+
+    /* small screens */
+    @media (max-width:640px){
+      .wrapper{ padding:18px; margin:18px auto; }
+      h1{ font-size:1.6rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Vulnerability Disclosure Policy</h1>
-  </header>
+  <div class="wrapper">
+    <header>
+      <h1>Transform9 Vulnerability Disclosure Policy</h1>
+      <p class="subtitle">We welcome responsible security research to help make our systems and customers safer.</p>
+    </header>
 
-  <main>
-    <p>At <strong>Transform9</strong>, we take the security of our products and services seriously. We appreciate the efforts of security researchers who help us identify vulnerabilities responsibly. This policy explains how to report issues and what to expect.</p>
+    <main>
+      <section>
+        <p><strong>Transform9</strong> is committed to protecting our clients’ confidential information and the security of our systems. We encourage security researchers to report potential security vulnerabilities discovered in Transform9 products, services, or systems. This program is for <strong>responsible disclosure only</strong> and does not provide monetary rewards.</p>
 
-    <h2>Scope</h2>
-    <p>This policy covers all publicly accessible systems and services operated by Transform9, including but not limited to:</p>
-    <ul>
-      <li><code>https://www.transform9.com</code> and its subpaths</li>
-      <li><code>https://portal.transform9.com</code> and its subpaths</li>
-      <li>APIs under the <code>*.transform9.com</code> domain</li>
-    </ul>
+        <p>If you believe you have discovered a potential vulnerability, please report it to our security team following the submission instructions below.</p>
+      </section>
 
-    <h2>Out of Scope</h2>
-    <p>The following are <em>not</em> covered by this program:</p>
-    <ul>
-      <li>Denial of Service (DoS) or Distributed Denial of Service (DDoS) attacks</li>
-      <li>Social engineering such as phishing or scams</li>
-      <li>Physical attacks on hardware or facilities</li>
-      <li>Third-party services not owned by Transform9</li>
-      <li>UI/UX issues without security impact</li>
-      <li>Clickjacking or missing headers without exploitability</li>
-    </ul>
+      <h2>Vulnerability Disclosure Program Guidelines</h2>
+      <section class="panel">
+        <p>This policy provides clear guidance for security researchers about: (1) what systems and testing activities are in scope, and (2) how to report potential security vulnerabilities. By participating in this program you represent that any information you provide is accurate and truthful.</p>
 
-    <h2>How to Submit a Vulnerability Report</h2>
-    <p>Please send detailed reports to <a href="mailto:security@transform9.com">security@transform9.com</a> with:</p>
-    <ul>
-      <li>Description and reproduction steps</li>
-      <li>Impact assessment</li>
-      <li>Proof of concept (if possible)</li>
-      <li>Contact information for follow-up (optional)</li>
-    </ul>
+        <h3 style="margin-top:12px;">Prohibited activities</h3>
+        <ul>
+          <li>Malicious hacking or attempts to gain unauthorized access to information, software, or systems.</li>
+          <li>Disclosing, copying, storing, or otherwise mishandling any proprietary, confidential, or customer data. If you encounter such data, immediately stop testing, delete any copies, and report what you found without including the sensitive data itself.</li>
+          <li>Activities that violate applicable laws, regulations, or the rights of third parties.</li>
+          <li>Actions that damage the intellectual property, commercial, or financial interests of Transform9 or any third party.</li>
+          <li>Performing activities that could initiate fraudulent financial transactions or otherwise cause harm to our customers.</li>
+          <li>Automated scanning with high-impact scanners that can cause broad traffic or service disruption (e.g., very heavy automated Nessus/Qualys scans). Manual testing tools (e.g., Burp Suite used responsibly) are permitted.</li>
+          <li>Sharing details of reported vulnerabilities with third parties without prior written consent from Transform9.</li>
+        </ul>
+      </section>
 
-    <h2>Our Commitment to You</h2>
-    <ul>
-      <li>Acknowledge your report within 3 business days</li>
-      <li>Keep you updated on the investigation and resolution</li>
-      <li>Coordinate for responsible disclosure</li>
-      <li>Provide credit if you desire</li>
-    </ul>
+      <h2>Safe Harbor</h2>
+      <section>
+        <p>If you comply with this policy and act in good faith, Transform9 will consider your testing authorized for the purposes of this program and will not pursue civil or criminal action against you for such testing. If a third party initiates legal action related to testing performed in accordance with this policy, Transform9 will take reasonable steps to confirm and communicate that your actions were in compliance with this policy.</p>
+      </section>
 
-    <h2>Legal Safe Harbor</h2>
-    <p>As long as you follow this policy and act in good faith, we commit not to pursue legal action related to your testing. Please avoid any activities that could harm users or systems.</p>
-  </main>
+      <h2>Sensitive Data</h2>
+      <section class="panel">
+        <p>It is possible you may inadvertently encounter sensitive information (personal data, confidential business data, financial records, etc.). If you encounter such data you must:</p>
+        <ul>
+          <li>Immediately stop your activity.</li>
+          <li>Delete any copies of the sensitive data under your control.</li>
+          <li>Report the finding to Transform9 without including the actual sensitive data (describe only the type of data encountered).</li>
+        </ul>
+        <p class="muted">Reports that include actual sensitive data in the submission will be closed without further action.</p>
+      </section>
 
-  <footer>
-    Contact us at <a href="mailto:security@transform9.com">security@transform9.com</a>
-  </footer>
+      <h2>Testing Rules</h2>
+      <section>
+        <ul>
+          <li>Exploit vulnerabilities only via <strong>unauthenticated methods</strong> or via self-registered accounts where open enrollment is explicitly allowed.</li>
+          <li>Do not purchase services, solicit, or otherwise obtain credentials from customers, partners, or other third parties for the purpose of testing.</li>
+          <li>Credentials discovered during testing should be reported as a vulnerability and not used to access additional systems or data.</li>
+          <li>Do not conduct phishing, vishing, or other social engineering tests against Transform9 employees, customers, or partners.</li>
+        </ul>
+      </section>
+
+      <h2>Scope</h2>
+      <section class="panel">
+        <p>The following assets are in-scope for this Vulnerability Disclosure Program when owned and operated by Transform9:</p>
+        <ul>
+          <li><code>https://www.transform9.com</code> and its subpaths</li>
+          <li><code>https://portal.transform9.com</code> and its subpaths</li>
+          <li>API endpoints under the <code>*.transform9.com</code> domain</li>
+          <li>Publicly available mobile applications published by Transform9 (if explicitly listed)</li>
+        </ul>
+        <p>If you are unsure whether a target is in scope, please <strong>contact us first</strong> at the address below prior to testing.</p>
+      </section>
+
+      <h2>Out of Scope</h2>
+      <section>
+        <p>The following activities and findings are out of scope for this program and should not be tested unless prior written consent is obtained:</p>
+        <ul>
+          <li>Denial of Service (DoS) or Distributed Denial of Service (DDoS) techniques.</li>
+          <li>Social engineering (phishing, vishing, SMS scams, etc.).</li>
+          <li>Rate-limiting or brute-force issues on non-authentication endpoints.</li>
+          <li>Attacks requiring Man-in-the-Middle (MITM) or physical access to a user's device.</li>
+          <li>Automated bulk scanning that can degrade service (high-volume Nessus/Qualys-style scans).</li>
+          <li>Vulnerabilities on third-party systems or domains not controlled by Transform9.</li>
+          <li>Low-impact issues without an exploit path, including but not limited to: open redirects (unless exploitable), content spoofing without an attack vector, version disclosure without PoC, CSRF on non-sensitive unauthenticated forms, missing security headers with no demonstrated impact, or cookie flags on non-sensitive cookies.</li>
+        </ul>
+      </section>
+
+      <h2>How to Report</h2>
+      <section class="panel">
+        <p>Please submit vulnerability reports to our security team using the email address below. If you prefer to encrypt your submission, include only encrypted content using our PGP public key (link below).</p>
+
+        <p><strong>Send reports to:</strong> <a href="mailto:security@transform9.com">security@transform9.com</a></p>
+
+        <p><strong>PGP public key (optional):</strong> <a href="https://www.transform9.com/pgp-key.txt" target="_blank" rel="noopener">https://www.transform9.com/pgp-key.txt</a></p>
+
+        <h3 style="margin-top:12px;">Report content checklist</h3>
+        <ul>
+          <li>Short summary of the issue</li>
+          <li>Target (URL / hostname / app version)</li>
+          <li>Detailed, step‑by‑step reproduction steps (exact requests where applicable)</li>
+          <li>Proof of concept (PoC) code, screenshots, recordings, or curl commands</li>
+          <li>Tools used during discovery</li>
+          <li>Time(s) tested (UTC)</li>
+          <li>Confidentiality preference (keep private / public credit after fix)</li>
+        </ul>
+
+        <p class="muted">If you encounter sensitive customer data, do not include it in your report. Describe the type of data seen and steps to reproduce without including the data itself.</p>
+      </section>
+
+      <h2>Responsiveness</h2>
+      <section>
+        <p>Transform9 will make a best effort to acknowledge receipt of vulnerability reports within <strong>3 business days</strong>. For validated reports we will keep you reasonably informed about triage, remediation, and timelines. We ask researchers to allow a reasonable timeframe for remediation before public disclosure; we will coordinate disclosure timelines with the reporter where appropriate.</p>
+      </section>
+
+      <h2>Legal & Terms</h2>
+      <section class="panel">
+        <p>By participating in this program you agree to comply with all applicable laws. You also agree to the following:</p>
+        <ul>
+          <li>You will not use Transform9’s name, trademarks, or branding without explicit written permission.</li>
+          <li>Information accessed during testing is confidential and must not be shared or used outside the scope of this program.</li>
+          <li>You do not acquire any ownership rights to systems, data, or intellectual property by participating in this program.</li>
+          <li>Transform9 may update or modify this policy at any time; the most recent version posted on this page governs.</li>
+          <li>By submitting a report you consent that information you provide may be transferred to and stored by Transform9 in locations we operate (including the United States).</li>
+        </ul>
+
+        <p class="muted">Nothing in this policy creates an employment, agency, or partnership relationship between you and Transform9.</p>
+      </section>
+
+      <h2>Questions & Contact</h2>
+      <section>
+        <p>If you have questions about this policy or need pre-approval for testing, contact our security team: <a href="mailto:security@transform9.com">security@transform9.com</a>.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Last updated: 2025-09-30 — For legal certainty, consult Transform9's official counsel before relying on this policy.</p>
+    </footer>
+  </div>
 </body>
 </html>
-
-
